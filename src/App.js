@@ -4,7 +4,7 @@ import SearchPokemonModal from './components/SearchPokemonModal'
 import BottomBar from './components/BottomBar'
 import MyPokeDex from './components/MyPokeDex'
 
-const COLORS = {
+export const COLORS = {
   Psychic: '#f8a5c2',
   Fighting: '#f0932b',
   Fairy: '#c44569',
@@ -40,8 +40,6 @@ class App extends Component {
   }
 
   onAddMyCard = (card) => {
-    console.log('onAddMyCard')
-    console.log(this.state.myCards)
     const myCards = [...this.state.myCards]
     myCards.push(card)
     this.setState({ myCards })
@@ -59,12 +57,13 @@ class App extends Component {
           removeMyCard={this.onRemoveMyCard}
         />
         <BottomBar openModal={this.onOpenModal} />
-        <SearchPokemonModal
-          myCardIds={this.getMyCardIds()}
-          closeModal={this.onCloseModal}
-          isModalOpen={this.state.isModalOpen}
-          addMyCard={this.onAddMyCard}
-        />
+        {this.state.isModalOpen && (
+          <SearchPokemonModal
+            myCardIds={this.getMyCardIds()}
+            closeModal={this.onCloseModal}
+            addMyCard={this.onAddMyCard}
+          />
+        )}
       </div>
     )
   }

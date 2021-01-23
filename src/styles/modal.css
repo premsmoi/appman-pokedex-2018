@@ -11,14 +11,7 @@
   width: 924px;
   height: 668px;
   background-color: white;
-}
-
-.modal.show {
-  display: block;
-}
-
-.modal.hide {
-  display: none;
+  padding: 10px;
 }
 
 .modal .search-box {

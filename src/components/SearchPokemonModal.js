@@ -10,12 +10,8 @@ const SearchPokemonModal = (props) => {
   const [readyToRender, setReadyToRender] = useState(false)
 
   useEffect(() => {
-    if (!props.isModalOpen) {
-      setReadyToRender(false)
-      return
-    }
     onSearch()
-  }, [props.isModalOpen])
+  }, [])
 
   useEffect(() => {
     const cards = searchResult
@@ -28,9 +24,9 @@ const SearchPokemonModal = (props) => {
   }
 
   const onSearch = () => {
-    fetch(
-      `http://localhost:3030/api/cards?limit=30&name=${searchNameInput}&type=${searchTypeInput}`
-    )
+    const nameQuery = searchNameInput ? `&name=${searchNameInput}` : ''
+    const typeQuery = searchTypeInput ? `&type=${searchTypeInput}` : ''
+    fetch(`http://localhost:3030/api/cards?limit=30${nameQuery}${typeQuery}`)
       .then((response) => response.json())
       .then((result) => {
         const cards = result.cards
@@ -40,13 +36,9 @@ const SearchPokemonModal = (props) => {
   }
 
   return (
-    props.isModalOpen &&
     readyToRender && (
-      <div className={`${props.isModalOpen ? 'modal-overlay' : ''}`}>
-        <div
-          className={`modal ${props.isModalOpen ? 'show' : 'hide'}`}
-          onClick={(e) => e.stopPropagation()}
-        >
+      <div className="modal-overlay">
+        <div className="modal" onClick={(e) => e.stopPropagation()}>
           <div className="search-box">
             <input
               type="text"
@@ -72,6 +64,7 @@ const SearchPokemonModal = (props) => {
           <div className="search-result">
             {searchResult.map((card) => (
               <Card
+                key={card.id}
                 data={card}
                 onClickAction={() => props.addMyCard(card)}
                 actionLabel="Add"

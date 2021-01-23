@@ -1,13 +1,13 @@
 .card {
   background-color: #f3f4f7;
-  box-shadow: #d5d6dc;
+  box-shadow: 5px 5px 5px #d5d6dc;
   display: flex;
   margin: 10px;
   height: 275px;
 }
 
 .card:hover {
-  box-shadow: #aeaeae;
+  box-shadow: 5px 5px 5px #aeaeae;
 }
 
 .card .pokemon-img {

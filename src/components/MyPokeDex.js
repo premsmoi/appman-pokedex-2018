@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Card from './Card'
 import '../styles/my-pokedex.css'
 
@@ -9,6 +9,7 @@ const MyPokeDex = (props) => {
       <div className="my-card-list">
         {props.cards.map((card) => (
           <Card
+            key={card.id}
             data={card}
             onClickAction={() => props.removeMyCard(card.id)}
             actionLabel="X"

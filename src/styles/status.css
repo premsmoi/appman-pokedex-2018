@@ -14,8 +14,5 @@
   box-shadow: #d4d4d4;
   border-radius: 20px;
   width: 60%;
-}
-
-.status .level-tube-value {
-  background-color: #f3701a;
+  box-shadow: 0px 0px 1px #d4d4d4;
 }
