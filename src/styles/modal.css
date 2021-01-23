@@ -1,0 +1,49 @@
+.modal-overlay {
+  position: absolute;
+  inset: 0px;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 924px;
+  height: 668px;
+  background-color: white;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal.hide {
+  display: none;
+}
+
+.modal .search-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  border: 1px solid #e6e6e6;
+}
+
+.modal .search-box input {
+  font-family: 'Gaegu';
+  font-size: 24px;
+  width: 100%;
+  border: unset;
+}
+
+.modal .search-box input:focus {
+  outline: none;
+}
+
+.modal .search-box .search-icon {
+  cursor: pointer;
+}
+
+.modal .search-result {
+  height: 596px;
+  overflow: scroll;
+}

@@ -1,0 +1,21 @@
+.status {
+  display: flex;
+  margin: 10px 0;
+}
+
+.status .name {
+  width: 25%;
+  font-size: 16px;
+}
+
+.status .level-tube {
+  display: flex;
+  background-color: #e4e4e4;
+  box-shadow: #d4d4d4;
+  border-radius: 20px;
+  width: 60%;
+}
+
+.status .level-tube-value {
+  background-color: #f3701a;
+}

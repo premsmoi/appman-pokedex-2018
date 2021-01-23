@@ -1,0 +1,16 @@
+.my-card-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  height: 618px;
+}
+
+.my-card-list .card {
+  width: 492px;
+}
+
+.header {
+  height: 100px;
+  text-align: center;
+  font-size: 48px;
+}
