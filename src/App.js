@@ -21,6 +21,7 @@ const COLORS = {
 class App extends Component {
   state = {
     isModalOpen: false,
+    myCards: [],
   }
 
   onOpenModal = () => {
@@ -33,14 +34,36 @@ class App extends Component {
     }
   }
 
+  onRemoveMyCard = (id) => {
+    const myCards = this.state.myCards.filter((card) => card.id !== id)
+    this.setState({ myCards })
+  }
+
+  onAddMyCard = (card) => {
+    console.log('onAddMyCard')
+    console.log(this.state.myCards)
+    const myCards = [...this.state.myCards]
+    myCards.push(card)
+    this.setState({ myCards })
+  }
+
+  getMyCardIds = () => {
+    return this.state.myCards.map((card) => card.id)
+  }
+
   render() {
     return (
       <div className="App" onClick={this.onCloseModal}>
-        <MyPokeDex />
+        <MyPokeDex
+          cards={this.state.myCards}
+          removeMyCard={this.onRemoveMyCard}
+        />
         <BottomBar openModal={this.onOpenModal} />
         <SearchPokemonModal
+          myCardIds={this.getMyCardIds()}
           closeModal={this.onCloseModal}
           isModalOpen={this.state.isModalOpen}
+          addMyCard={this.onAddMyCard}
         />
       </div>
     )

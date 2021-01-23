@@ -3,6 +3,7 @@
   box-shadow: #d5d6dc;
   display: flex;
   margin: 10px;
+  height: 275px;
 }
 
 .card:hover {
@@ -25,10 +26,13 @@
 }
 
 .card .detail .cute-img {
-  margin: 5px;
+  margin: 3px;
 }
 
 .card .action-button {
+  color: #dc7777;
   font-size: 24px;
   margin: 10px;
+  cursor: pointer;
+  height: 20px;
 }

@@ -31,8 +31,9 @@
 .modal .search-box input {
   font-family: 'Gaegu';
   font-size: 24px;
-  width: 100%;
+  width: 50%;
   border: unset;
+  border-right: 1px solid #e6e6e6;
 }
 
 .modal .search-box input:focus {
